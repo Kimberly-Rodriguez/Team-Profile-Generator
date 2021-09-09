@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+ 
+}
+
+
+.my-header {
+  display: flex;
+  background-color:#ffb703;
+  color: #023047;
+  font-weight: bold;
+  height: 30vh;
+  margin-top: 20px;
+  padding: 80px;
+  margin-bottom: 80px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.card{
+  flex-direction:row;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 8rem; */
+
+}
+
+
+.container-2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  /* width: 18rem */
+  
+
+}
