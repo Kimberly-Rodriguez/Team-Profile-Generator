@@ -1,7 +1,23 @@
+const { team } = require("y");
+
+function generateManagerCard {
+  if (team[i] === "Manager")
+  return ; 
+}
+
+function  generateEngineerCards {
+  if (team[i] === "Engineer")
+  return 
+
+}
+
+function generateInternCards {
+  if (team[i] === "Intern")
+  return
+}
 
 
-
-function generateMarkdown(data) {
+function generateHtml(data) {
 
 const htmlString = `<!DOCTYPE html>
 <html lang="en">
@@ -39,4 +55,4 @@ const htmlString = `<!DOCTYPE html>
 return htmlString;
 }
 
-module.exports = generateMarkdown;
+module.exports = generateHtml;
