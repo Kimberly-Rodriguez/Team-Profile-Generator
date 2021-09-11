@@ -1,19 +1,34 @@
-const { team } = require("y");
+const { teamData } = require("init");
 
-function generateManagerCard {
-  if (team[i] === "Manager")
-  return ; 
+
+function generateManagerCard () {
+  if (team === "manager"){
+  return  "manager.name"; 
+} 
+  if (team === "manager.name"){
+  return "manager.id";
+}
+  if (team === "manger.id"){
+  return "manger.email";
+}
+  if(team === "manger.email"){
+    return "manager.office"
+}
+  if (team === "none"){
+    return "";
+}
 }
 
-function  generateEngineerCards {
-  if (team[i] === "Engineer")
+function  generateEngineerCards () {
+  if (team[i] === "Engineer"){
   return 
-
+  }
 }
 
-function generateInternCards {
-  if (team[i] === "Intern")
+function generateInternCards () {
+  if (team[i] === "Intern"){
   return
+  }
 }
 
 
@@ -49,6 +64,74 @@ const htmlString = `<!DOCTYPE html>
     ${generateManagerCard()}
     ${generateEngineerCards()}
     ${generateInternCards()}
+
+    <div class="container my-container">
+      <div class="row justify-content-center my-row">
+        <div class="col my-col">
+          <div class="card">
+            <div class="header-card">
+              <div class="card-body">
+                <h5 class="card-name">${manager.name}</h5>
+                <p class="card-job-title">${manager.role}</p>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">ID: ${manager.id}</li>
+              <li class="list-group-item Email">
+                Email: <span>${manager.email}</span>
+              </li>
+              <li class="list-group-item Institution">
+                ${manger.office} 
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="container my-container">
+        <div class="row justify-content-center my-row">
+          <div class="col my-col">
+            <div class="card">
+              <div class="header-card">
+                <div class="card-body">
+                  <h5 class="card-name">${engineer.name}</h5>
+                  <p class="card-job-title">${engineer.role}</p>
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${engineer.id}</li>
+                <li class="list-group-item Email">
+                  Email: <span>${engineer.email}</span>
+                </li>
+                <li class="list-group-item Institution">
+                  ${engineer.github} 
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="container my-container">
+        <div class="row justify-content-center my-row">
+          <div class="col my-col">
+            <div class="card">
+              <div class="header-card">
+                <div class="card-body">
+                  <h5 class="card-name">${intern.name}</h5>
+                  <p class="card-job-title">${intern.role}</p>
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${intern.id}</li>
+                <li class="list-group-item Email">
+                  Email: <span>${intern.email}</span>
+                </li>
+                <li class="list-group-item Institution">
+                  ${intern.school} 
+                </li>
+              </ul>
+            </div>
+          </div>
+
+    
   </body>
 </html>` 
 
