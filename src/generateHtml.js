@@ -1,13 +1,6 @@
-const {teamData} = require('./index');
+const init = require('./index');
 
 
-
-// teamData.forEach(card => console.log(card.createNewManger, card.createNewManger, card.createNewIntern));
-
-// // for of loop
-// for (const value of teamData){
-//   console.log(value);
-// }
 
 
 // switch (teamData) {
@@ -30,38 +23,8 @@ const {teamData} = require('./index');
 //   console.log()
 // }
 
-function generateManagerCard () {
-  if (team === "manager"){
-  return  "manager.name"; 
-} 
-  if (team === "manager.name"){
-  return "manager.id";
-}
-  if (team === "manger.id"){
-  return "manger.email";
-}
-  if(team === "manger.email"){
-    return "manager.office"
-}
-  if (team === "none"){
-    return "";
-}
-}
 
 
-
-
-function  generateEngineerCards () {
-  if (team[i] === "Engineer"){
-  return 
-  }
-}
-
-function generateInternCards () {
-  if (team[i] === "Intern"){
-  return
-  }
-}
 
 
 const generateHtml = (teamData) => {
