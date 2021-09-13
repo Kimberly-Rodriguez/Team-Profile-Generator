@@ -1,35 +1,46 @@
-const { teamData } = require("init");
+const init = require('./index');
 
+const allTeamData = [];
 
-function generateManagerCard () {
-  if (team === "manager"){
-  return  "manager.name"; 
-} 
-  if (team === "manager.name"){
-  return "manager.id";
-}
-  if (team === "manger.id"){
-  return "manger.email";
-}
-  if(team === "manger.email"){
-    return "manager.office"
-}
-  if (team === "none"){
-    return "";
-}
-}
-
-function  generateEngineerCards () {
-  if (team[i] === "Engineer"){
-  return 
+const generateHtml = (response) => {
+  for (let i = 0; i < response.length; i++) {
+   return (respnose[i].role) ? 'Manager'
+   : allTeamData.push(`
+   <div class="container my-container">
+      <div class="row justify-content-center my-row">
+        <div class="col my-col">
+          <div class="card">
+            <div class="header-card">
+              <div class="card-body">
+                <h5 class="card-name">${response[i].name}</h5>
+                <p class="card-job-title">${response[i].role}</p>
+              </div>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">ID: ${response[i].id}</li>
+              <li class="list-group-item Email">
+                Email: <span>${response[i].email}</span>
+              </li>
+              <li class="list-group-item Institution">
+                ${response[i].officeNumber} 
+              </li>
+            </ul>
+          </div>
+        </div>
+   `); 
+    return (response[i].role) ? 'Engineer'
+    : allTeamData.push(`
+    
+    
+    `)
+    return (response[i].role) ? 'Intern'
+    : allTeamData.push(`
+    `)
   }
 }
+    
 
-function generateInternCards () {
-  if (team[i] === "Intern"){
-  return
-  }
-}
+
 
 
 function generateHtml(data) {
@@ -65,27 +76,7 @@ const htmlString = `<!DOCTYPE html>
     ${generateEngineerCards()}
     ${generateInternCards()}
 
-    <div class="container my-container">
-      <div class="row justify-content-center my-row">
-        <div class="col my-col">
-          <div class="card">
-            <div class="header-card">
-              <div class="card-body">
-                <h5 class="card-name">${manager.name}</h5>
-                <p class="card-job-title">${manager.role}</p>
-              </div>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: ${manager.id}</li>
-              <li class="list-group-item Email">
-                Email: <span>${manager.email}</span>
-              </li>
-              <li class="list-group-item Institution">
-                ${manger.office} 
-              </li>
-            </ul>
-          </div>
-        </div>
+    
 
         <div class="container my-container">
         <div class="row justify-content-center my-row">

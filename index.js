@@ -1,17 +1,17 @@
-const inquirer = require("inquirer");
-const fs = require("fs");
+const inquirer = require('inquirer');
+const fs = require('fs');
 const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 //independent js document for HTML file
-const generateHtml = require("./src/generateHtml.js");
+const generateHtml = require('./src/generateHtml.js');
 
 // Empty array that holds all team members: 
-const teamData= [];
+const teamData = [];
 
 // manager function
-function init() {
+const init = () => {
   inquirer
     .prompt([
       {
@@ -46,23 +46,16 @@ function init() {
       //push to my teamData array 
         teamData.push(managerData);
         
-        if (response.role === 'Engineer') {
-          createNewEngineer()
-        }
-        else if (response.role === 'Intern') {
-          createNewIntern()
-        }
-        else {
-          fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
+        return (response.role === 'Engineer') ? createNewEngineer()
+        : (response.role === 'Intern') ? createNewIntern()
+        : fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
           err ? console.log(err) : console.log('Success!'))
-        
-        }
-    });
+          });
 }
 
 
 //engineer function
-function createNewEngineer () {
+const createNewEngineer = () => {
   inquirer
 .prompt([
   {
@@ -88,7 +81,7 @@ function createNewEngineer () {
   {
     type: "list",
     message: "Do you want to add another team member, if so, which one?",
-    choices: ["Engeneer", "Intern", "Exit"],
+    choices: ["Engineer", "Intern", "Exit"],
     name: "role",
   },
 ])
@@ -97,21 +90,16 @@ function createNewEngineer () {
     //push to my teamData array 
       teamData.push(engineerData);
       
-      if (response.role === 'Engineer') {
-        createNewEngineer()
-      }
-      else if (response.role === 'Intern') {
-        createNewIntern()
-      }
-      else {
-        fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
+      return (response.role === 'Engineer') ? createNewEngineer()
+      : (response.role === 'Intern') ? createNewIntern()
+      : fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
         err ? console.log(err) : console.log('Success!'))
-      }
+
     });
 }
 
 // intern function
-function createNewIntern () {
+const createNewIntern = () => {
   inquirer
     .prompt([
       {
@@ -137,7 +125,7 @@ function createNewIntern () {
       {
         type: "list",
         message: "Do you want to add another team member, if so, please select one: ",
-        choices: ["Engeneer", "Intern", "Exit"],
+        choices: ["Engineer", "Intern", "Exit"],
         name: "role",
       },
     ])
@@ -146,29 +134,15 @@ function createNewIntern () {
     //push to my teamData array 
       teamData.push(internData);
       
-      if (response.role === 'Engineer') {
-        createNewEngineer()
-      }
-      else if (response.role === 'Intern') {
-        createNewIntern()
-      }
-      else {
-        fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
+      return (response.role === 'Engineer') ? createNewEngineer()
+      : (response.role === 'Intern') ? createNewIntern()
+      : fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
         err ? console.log(err) : console.log('Success!'))
       
-      }
-    });
+      });
   }
 
 // Function call to initialize app
 init();
 
 module.exports = init;
-
-
-// // A function to write HTML file
-// function writeToFile(response, data) {
-//   fs.writeFile("./dist/index.html", htmlString, (err) =>
-//     err ? console.error(err) : console.log("Success!")
-//   );
-// }
