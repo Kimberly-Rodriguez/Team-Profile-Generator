@@ -1,5 +1,34 @@
-const { teamData } = require("init");
+const {teamData} = require('./index');
 
+
+
+// teamData.forEach(card => console.log(card.createNewManger, card.createNewManger, card.createNewIntern));
+
+// // for of loop
+// for (const value of teamData){
+//   console.log(value);
+// }
+
+
+// switch (teamData) {
+//   case 'manager':
+//     console.log(manager.name);
+//     break;
+//   case  'manager.id':
+//     console.log(manager.id);
+//     break;
+//   case  'manager.email':
+//     console.log(manager.email);
+//     break;
+//   case  'manager.office':
+//     console.log(manager.office);
+//     break; 
+//   case 'manager.exit':
+//   console.log(manager.exit);
+//   break;
+//   default: 
+//   console.log()
+// }
 
 function generateManagerCard () {
   if (team === "manager"){
@@ -19,6 +48,9 @@ function generateManagerCard () {
 }
 }
 
+
+
+
 function  generateEngineerCards () {
   if (team[i] === "Engineer"){
   return 
@@ -32,9 +64,8 @@ function generateInternCards () {
 }
 
 
-function generateHtml(data) {
-
-const htmlString = `<!DOCTYPE html>
+const generateHtml = (teamData) => {
+ `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -135,7 +166,7 @@ const htmlString = `<!DOCTYPE html>
   </body>
 </html>` 
 
-return htmlString;
+return generateHtml
 }
 
 module.exports = generateHtml;
