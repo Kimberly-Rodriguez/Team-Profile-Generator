@@ -12,9 +12,13 @@
 
 ## Description
 
-To generate a webpage that displays a manager's team basic information, this way she/he has easy access to their emails and GitHub profiles. 
+To generate a webpage that displays a team's basic information. This webpage is created by the manager so she/he has easy access to their team's emails and GitHub profiles. 
 
 ## Instalation
+
+For installation and deployment, please click [here](https://kimberly-rodriguez.github.io/Team-Profile-Generator/). The GitHub link is [here](https://github.com/Kimberly-Rodriguez/Team-Profile-Generator).
+
+
 * Clone the repo (please reference the links below).
 ```md 
 git@github.com:Kimberly-Rodriguez/README-Generator.git
