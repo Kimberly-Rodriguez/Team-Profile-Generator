@@ -27,24 +27,57 @@ const generateHtml = (response) => {
             </ul>
           </div>
         </div>
-   `); 
+   `);
     return (response[i].role) ? 'Engineer'
     : allTeamData.push(`
-    
-    
-    `)
+    <div class="container my-container">
+        <div class="row justify-content-center my-row">
+          <div class="col my-col">
+            <div class="card">
+              <div class="header-card">
+                <div class="card-body">
+                  <h5 class="card-name">${response[i].name}</h5>
+                  <p class="card-job-title">${response[i].role}</p>
+                </div>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: ${response[i].id}</li>
+                <li class="list-group-item Email">
+                  Email: <span>${response[i].email}</span>
+                </li>
+                <li class="list-group-item Institution">
+                  ${response[i].github} 
+                </li>
+              </ul>
+            </div>
+          </div>
+    `);
     return (response[i].role) ? 'Intern'
     : allTeamData.push(`
+    <div class="container my-container">
+    <div class="row justify-content-center my-row">
+      <div class="col my-col">
+        <div class="card">
+          <div class="header-card">
+            <div class="card-body">
+              <h5 class="card-name">${response[i].name}</h5>
+              <p class="card-job-title">${response[i].role}</p>
+            </div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">ID: ${response[i].id}</li>
+            <li class="list-group-item Email">
+              Email: <span>${response[i].email}</span>
+            </li>
+            <li class="list-group-item Institution">
+              ${response[i].school} 
+            </li>
+          </ul>
+        </div>
+      </div>
     `)
   }
-}
-    
-
-
-
-
-function generateHtml(data) {
-
+  
 const htmlString = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,59 +105,10 @@ const htmlString = `<!DOCTYPE html>
       <h1 class="header">My Team</h1>
     </header>
 
-    ${generateManagerCard()}
-    ${generateEngineerCards()}
-    ${generateInternCards()}
-
-    
-
-        <div class="container my-container">
-        <div class="row justify-content-center my-row">
-          <div class="col my-col">
-            <div class="card">
-              <div class="header-card">
-                <div class="card-body">
-                  <h5 class="card-name">${engineer.name}</h5>
-                  <p class="card-job-title">${engineer.role}</p>
-                </div>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${engineer.id}</li>
-                <li class="list-group-item Email">
-                  Email: <span>${engineer.email}</span>
-                </li>
-                <li class="list-group-item Institution">
-                  ${engineer.github} 
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="container my-container">
-        <div class="row justify-content-center my-row">
-          <div class="col my-col">
-            <div class="card">
-              <div class="header-card">
-                <div class="card-body">
-                  <h5 class="card-name">${intern.name}</h5>
-                  <p class="card-job-title">${intern.role}</p>
-                </div>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">ID: ${intern.id}</li>
-                <li class="list-group-item Email">
-                  Email: <span>${intern.email}</span>
-                </li>
-                <li class="list-group-item Institution">
-                  ${intern.school} 
-                </li>
-              </ul>
-            </div>
-          </div>
-
-    
+    ${allTeamData.join('')}
+  
   </body>
-</html>` 
+  </html>` 
 
 return htmlString;
 }
