@@ -1,34 +1,40 @@
-const init = require('./index');
+const { teamData } = require("init");
 
 
+function generateManagerCard () {
+  if (team === "manager"){
+  return  "manager.name"; 
+} 
+  if (team === "manager.name"){
+  return "manager.id";
+}
+  if (team === "manger.id"){
+  return "manger.email";
+}
+  if(team === "manger.email"){
+    return "manager.office"
+}
+  if (team === "none"){
+    return "";
+}
+}
+
+function  generateEngineerCards () {
+  if (team[i] === "Engineer"){
+  return 
+  }
+}
+
+function generateInternCards () {
+  if (team[i] === "Intern"){
+  return
+  }
+}
 
 
-// switch (teamData) {
-//   case 'manager':
-//     console.log(manager.name);
-//     break;
-//   case  'manager.id':
-//     console.log(manager.id);
-//     break;
-//   case  'manager.email':
-//     console.log(manager.email);
-//     break;
-//   case  'manager.office':
-//     console.log(manager.office);
-//     break; 
-//   case 'manager.exit':
-//   console.log(manager.exit);
-//   break;
-//   default: 
-//   console.log()
-// }
+function generateHtml(data) {
 
-
-
-
-
-const generateHtml = (teamData) => {
- `<!DOCTYPE html>
+const htmlString = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -129,7 +135,7 @@ const generateHtml = (teamData) => {
   </body>
 </html>` 
 
-return generateHtml
+return htmlString;
 }
 
 module.exports = generateHtml;

@@ -1,20 +1,19 @@
-const inquirer = require('inquirer'); 
-const fs = require('fs'); 
-
+const inquirer = require("inquirer");
+const fs = require("fs");
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
 //independent js document for HTML file
-const generateHtml = require('./src/generateHtml.js'); 
-const Employee = require('./lib/Employee'); 
-const Manager = require('./lib/Manager'); 
-const Engineer = require('./lib/Engineer'); 
-const Intern = require('./lib/Intern'); 
-
+const generateHtml = require("./src/generateHtml.js");
 
 // Empty array that holds all team members: 
-const teamData = [];
-
+const teamData= [];
 
 // manager function
-const managerInput = [  
+function init() {
+  inquirer
+    .prompt([
       {
         type: "input",
         message: "Plase input the name of this manager?",
@@ -41,26 +40,29 @@ const managerInput = [
         choices: ['Engineer', 'Intern', 'Exit'], 
         name: "role",
       },
-    ]
-
-const init = () => {  
-  inquirer
-   .prompt(managerInput)
-   .then((response) => { 
-    const managerData = new Manager (response.name, response.id, response.email, response.officeNumber, response.role) 
-    //push to my teamData array 
-    teamData.push(managerData);
-
-    return response.role === 'Engineer' ? createNewEngineer() 
-         : response.role === 'Intern' ?  createNewIntern()    
-         : fs.writeFile('./dist/index.html', generateHtml(teamData), (err) => 
-         err ? console.log(err) : console.log('Success!'))  
-});
-  
+    ])
+    .then((response) => {
+        const managerData = new Manager (response.name, response.id, response.email, response.officeNumber)
+      //push to my teamData array 
+        teamData.push(managerData);
+        
+        if (response.role === 'Engineer') {
+          createNewEngineer()
+        }
+        else if (response.role === 'Intern') {
+          createNewIntern()
+        }
+        else {
+          fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
+          err ? console.log(err) : console.log('Success!'))
+        
+        }
+    });
 }
 
+
 //engineer function
-const createNewEngineer = () => { 
+function createNewEngineer () {
   inquirer
 .prompt([
   {
@@ -85,27 +87,31 @@ const createNewEngineer = () => {
   },
   {
     type: "list",
-    message: "Do you want to add another team member, if so, what kind?",
+    message: "Do you want to add another team member, if so, which one?",
     choices: ["Engeneer", "Intern", "Exit"],
     name: "role",
   },
 ])
     .then((response) => {
-      console.log(response)
-      const engineerData = new Engineer (response.name, response.id, response.email, response.github, response.role)
+      const engineerData = new Engineer (response.name, response.id, response.email, response.github)
     //push to my teamData array 
       teamData.push(engineerData);
-
-     // coditional (ternary operator) chain 
-      return response.role === 'Engineer' ? createNewEngineer()
-           : response.role === 'Intern' ? createNewIntern()
-           : fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
-              err ? console.log(err) : console.log('Success!'))
+      
+      if (response.role === 'Engineer') {
+        createNewEngineer()
+      }
+      else if (response.role === 'Intern') {
+        createNewIntern()
+      }
+      else {
+        fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
+        err ? console.log(err) : console.log('Success!'))
+      }
     });
 }
 
 // intern function
-createNewIntern = () => { 
+function createNewIntern () {
   inquirer
     .prompt([
       {
@@ -130,27 +136,39 @@ createNewIntern = () => {
       },
       {
         type: "list",
-        message: "Do you want to add another team member, if so, what kind?",
+        message: "Do you want to add another team member, if so, please select one: ",
         choices: ["Engeneer", "Intern", "Exit"],
         name: "role",
       },
     ])
     .then((response) => {
-      const internData = new Intern (response.name, response.id, response.email, response.school, response.role)
+      const internData = new Intern (response.name, response.id, response.email, response.school)
     //push to my teamData array 
       teamData.push(internData);
-
-      return response.role === 'Engineer' ? createNewEngineer()
-           : response.role === 'Intern' ? createNewIntern()
-           : fs.writeFile('./dist/index.html', generateHtml, (err) =>
-           err ? console.log(err) : console.log('Success!'))
-
+      
+      if (response.role === 'Engineer') {
+        createNewEngineer()
+      }
+      else if (response.role === 'Intern') {
+        createNewIntern()
+      }
+      else {
+        fs.writeFile('./dist/index.html', generateHtml(teamData), (err) =>
+        err ? console.log(err) : console.log('Success!'))
+      
+      }
     });
   }
 
 // Function call to initialize app
 init();
 
-module.exports = init; 
+module.exports = init;
 
 
+// // A function to write HTML file
+// function writeToFile(response, data) {
+//   fs.writeFile("./dist/index.html", htmlString, (err) =>
+//     err ? console.error(err) : console.log("Success!")
+//   );
+// }

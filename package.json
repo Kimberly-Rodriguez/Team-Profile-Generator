@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Kimberly-Rodriguez/Team-Profile-Generator#readme",
   "dependencies": {
+    "init": "^0.1.2",
     "inquirer": "^8.1.2",
     "jest": "^27.1.1"
   }
