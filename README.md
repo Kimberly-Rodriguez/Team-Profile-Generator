@@ -4,7 +4,6 @@
 
 * [Description](#description)
 * [Instalation](#instalation)
-* [Usage](#usage)
 * [Tools](#tools)
 * [Contact](#contact)
 * [License](#license)
@@ -13,7 +12,7 @@
 
 ## Description
 
-To quickly and easily create a README file that uses a command-line application. Thus allowing the project creator to allocate more time to programming the application itself. 
+To generate a webpage that displays a manager's team basic information, this way she/he has easy access to their emails and GitHub profiles. 
 
 ## Instalation
 * Clone the repo (please reference the links below).
@@ -21,35 +20,16 @@ To quickly and easily create a README file that uses a command-line application.
 git@github.com:Kimberly-Rodriguez/README-Generator.git
 ```
 
-* Install NPM packages
-```md 
-npm install npm@latest -g
-```
-
-
-For additional details on installation and deployment, please [click here](https://kimberly-rodriguez.github.io/README-Generator/). The GitHub link is [here](https://github.com/Kimberly-Rodriguez/README-Generator).
-
-
-```md
-This command-line application accepts user input and creates a professional README.md with the title of my project and sections entitled Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions.
-
-````
-The following image and video shows the web application's appearance and functionality:
-
-!["screen shot 1 of applicating showing the end product"](screenShot01.png)
-
 [video link](https://drive.google.com/file/d/1pSnf3ThV1nMR_jCuZkwSNK-e1MFMQY2l/view)
-
-
-## Usage
-
-To quickly create a professional README for a new project.
 
 
 ## Tools
 
-This project was built using Node.js, the [Inquirer package](https://www.npmjs.com/package/inquirer) and the [Professional README Guide](https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide).
+This project was built using the [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer) for collecting input from the user. The application will be invoked by using the following command:
 
+```bash
+node index.js
+```
 
 ## Contact
 

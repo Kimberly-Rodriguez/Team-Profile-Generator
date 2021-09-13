@@ -106,7 +106,7 @@ const htmlString = `<!DOCTYPE html>
     <title>Team-Profile-Generator</title>
   </head>
   <body>
-    <header class="my-header">
+    <header class="row justify-content-center my-header ">
       <h1 class="header">My Team</h1>
     </header>
 
