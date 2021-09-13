@@ -24,7 +24,7 @@ For installation and deployment, please click [here](https://kimberly-rodriguez.
 git@github.com:Kimberly-Rodriguez/README-Generator.git
 ```
 
-[video link](https://drive.google.com/file/d/1pSnf3ThV1nMR_jCuZkwSNK-e1MFMQY2l/view)
+[video link](https://drive.google.com/file/d/14d46wtvWzeU5oL6KJFmrU3PTFCZPm0o4/view)
 
 
 ## Tools
