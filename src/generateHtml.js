@@ -1,11 +1,12 @@
-const init = require('./index');
+
 
 const allTeamData = [];
 
 const generateHtml = (response) => {
   for (let i = 0; i < response.length; i++) {
-   return (respnose[i].role) ? 'Manager'
-   : allTeamData.push(`
+   switch (response[i].role) {
+     case 'Manager': 
+      allTeamData.push(`
    <div class="container my-container">
       <div class="row justify-content-center my-row">
         <div class="col my-col">
@@ -28,8 +29,9 @@ const generateHtml = (response) => {
           </div>
         </div>
    `);
-    return (response[i].role) ? 'Engineer'
-    : allTeamData.push(`
+   break;
+    case 'Engineer':
+     allTeamData.push(`
     <div class="container my-container">
         <div class="row justify-content-center my-row">
           <div class="col my-col">
@@ -52,8 +54,9 @@ const generateHtml = (response) => {
             </div>
           </div>
     `);
-    return (response[i].role) ? 'Intern'
-    : allTeamData.push(`
+    break;
+    case 'Intern':
+    allTeamData.push(`
     <div class="container my-container">
     <div class="row justify-content-center my-row">
       <div class="col my-col">
@@ -76,6 +79,8 @@ const generateHtml = (response) => {
         </div>
       </div>
     `)
+    break;
+   }
   }
   
 const htmlString = `<!DOCTYPE html>
