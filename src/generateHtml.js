@@ -70,7 +70,7 @@ const generateHtml = (response) => {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${response[i].id}</li>
             <li class="list-group-item Email">
-              Email: <span>${response[i].email}</span>
+              Email: <a href="mailto:${response[i].email}>${response[i].email}</a>
             </li>
             <li class="list-group-item Institution">
               ${response[i].school} 
