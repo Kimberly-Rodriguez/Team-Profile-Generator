@@ -16,7 +16,7 @@ const init = () => {
     .prompt([
       {
         type: "input",
-        message: "Plase input the name of this manager?",
+        message: "Please input the name of this manager?",
         name: "name",
       },
       {

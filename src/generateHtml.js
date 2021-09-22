@@ -18,12 +18,12 @@ const generateHtml = (response) => {
               </div>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">ID: ${response[i].id}</li>
-              <li class="list-group-item Email">
-                Email: <span>${response[i].email}</span>
-              </li>
-              <li class="list-group-item Institution">
-                ${response[i].officeNumber} 
+                <li class="list-group-item">ID: ${response[i].id}</li>
+
+                <li class="list-group-item Institution"> Office Number: ${response[i].officeNumber}</li>
+                
+                <li class="list-group-item Email">
+                Email: <a href="mailto:${response[i].email}" target="_blank">${response[i].email}</a>
               </li>
             </ul>
           </div>
@@ -44,12 +44,14 @@ const generateHtml = (response) => {
               </div>
               <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${response[i].id}</li>
-                <li class="list-group-item Email">
-                  Email: <span>${response[i].email}</span>
-                </li>
+
                 <li class="list-group-item Institution">
-                  ${response[i].github} 
-                </li>
+                Github: <a href="${response[i].github} " target="_blank"> ${response[i].github} </a>
+              </li>
+                <li class="list-group-item Email">
+                Email: <a href="mailto:${response[i].email}" target="_blank">${response[i].email}</a>
+              </li>
+            
               </ul>
             </div>
           </div>
@@ -70,9 +72,9 @@ const generateHtml = (response) => {
           <ul class="list-group list-group-flush">
             <li class="list-group-item">ID: ${response[i].id}</li>
             <li class="list-group-item Email">
-              Email: <a href="mailto:${response[i].email}>${response[i].email}</a>
-            </li>
-            <li class="list-group-item Institution">
+                Email: <a href="mailto:${response[i].email}" target="_blank">${response[i].email}</a>
+              </li>
+            <li class="list-group-item Institution">School: 
               ${response[i].school} 
             </li>
           </ul>
